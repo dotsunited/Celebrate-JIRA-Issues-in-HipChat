@@ -147,16 +147,14 @@ module.exports = function (app, addon) {
   app.post('/webhook',
     addon.authenticate(),
     function (req, res) {
-      console.log(req.body.item);
-      console.log(req.body.item.message.from);
-      if (req.body.item.message.from === "Jira"){
-
+      console.log(req.body.item.message.message);
+      if (req.body.item.message.from === 'Jira'){
+        const command = req.body.item.message.message;
+         hipchat.sendMessage(req.clientInfo, req.identity.roomId, 'Da ist ein Jira Issue.')
+           .then(function (data) {
+             res.sendStatus(200);
+           });
       }
-     const command = req.body.item.message.message;
-      hipchat.sendMessage(req.clientInfo, req.identity.roomId, 'pong')
-        .then(function (data) {
-          res.sendStatus(200);
-        });
     }
     );
 
