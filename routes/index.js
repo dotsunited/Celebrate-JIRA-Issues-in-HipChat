@@ -147,10 +147,18 @@ module.exports = function (app, addon) {
   app.post('/webhook',
     addon.authenticate(),
     function (req, res) {
-      console.log(req.body.item.message.message);
-      if (req.body.item.message.from === 'Jira'){
+      if (req.body.item.message.from === 'JIRA'){
+        var match = message.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+        var numberArray;
+        var number;
+        if (match.length > 0){
+          numberArray = match[0].split("-");
+          if(numberArray.length > 1){
+            number = numberArray[1];
+          }
+        }
         const command = req.body.item.message.message;
-         hipchat.sendMessage(req.clientInfo, req.identity.roomId, 'Da ist ein Jira Issue.')
+         hipchat.sendMessage(req.clientInfo, req.identity.roomId, number)
            .then(function (data) {
              res.sendStatus(200);
            });
