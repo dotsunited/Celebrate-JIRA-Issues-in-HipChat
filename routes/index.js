@@ -148,7 +148,8 @@ module.exports = function (app, addon) {
     addon.authenticate(),
     function (req, res) {
       if (req.body.item.message.from === 'JIRA'){
-        var match = message.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+        console.log('true');
+        var match = req.body.item.message.from.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
         var numberArray;
         var number;
         if (match.length > 0){
