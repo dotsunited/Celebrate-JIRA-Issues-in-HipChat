@@ -147,6 +147,8 @@ module.exports = function (app, addon) {
   app.post('/webhook',
     addon.authenticate(),
     function (req, res) {
+      console.log(req.body.item);
+      console.log(req.body.item.message.from);
       if (req.body.item.message.from === "Jira"){
 
       }
