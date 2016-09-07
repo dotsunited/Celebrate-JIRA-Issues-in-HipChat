@@ -149,20 +149,20 @@ module.exports = function (app, addon) {
     function (req, res) {
       if (req.body.item.message.from === 'JIRA'){
         console.log('true');
-        var match = req.body.item.message.from.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+        var command = req.body.item.message.message;
+        var match = command.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
         var numberArray;
         var number;
         if (match.length > 0){
           numberArray = match[0].split("-");
           if(numberArray.length > 1){
             number = numberArray[1];
+            hipchat.sendMessage(req.clientInfo, req.identity.roomId, number)
+              .then(function (data) {
+                res.sendStatus(200);
+              });
           }
         }
-        const command = req.body.item.message.message;
-         hipchat.sendMessage(req.clientInfo, req.identity.roomId, number)
-           .then(function (data) {
-             res.sendStatus(200);
-           });
       }
     }
     );
