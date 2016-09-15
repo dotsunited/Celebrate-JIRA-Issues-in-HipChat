@@ -56,49 +56,12 @@ module.exports = function(app, addon) {
 
     // This is an example glance that shows in the sidebar
     // https://developer.atlassian.com/hipchat/guide/glances
-    app.get('/glance',
-        cors(),
-        addon.authenticate(),
-        function(req, res) {
-            res.json({
-                "label": {
-                    "type": "html",
-                    "value": "Hello World!"
-                },
-                "status": {
-                    "type": "lozenge",
-                    "value": {
-                        "label": "NEW",
-                        "type": "error"
-                    }
-                }
-            });
-        }
-    );
 
     // This is an example end-point that you can POST to to update the glance info
     // Room update API: https://www.hipchat.com/docs/apiv2/method/room_addon_ui_update
     // Group update API: https://www.hipchat.com/docs/apiv2/method/addon_ui_update
     // User update API: https://www.hipchat.com/docs/apiv2/method/user_addon_ui_update
-    app.post('/update_glance',
-        cors(),
-        addon.authenticate(),
-        function(req, res) {
-            res.json({
-                "label": {
-                    "type": "html",
-                    "value": "Hello World!"
-                },
-                "status": {
-                    "type": "lozenge",
-                    "value": {
-                        "label": "All good",
-                        "type": "success"
-                    }
-                }
-            });
-        }
-    );
+
 
     // This is an example sidebar controller that can be launched when clicking on the glance.
     // https://developer.atlassian.com/hipchat/guide/dialog-and-sidebar-views/sidebar
