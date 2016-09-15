@@ -1,6 +1,6 @@
 {
-    "key": "celebrate for JIRA",
-    "name": "celebrate for JIRA",
+    "key": "Celebrate JIRA Issues",
+    "name": "Celebrate JIRA Issues",
     "description": "Hipchat Bot for posting images on specific Jira Issue Number",
     "vendor": {
         "name": "Dots United",
