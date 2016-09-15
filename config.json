@@ -1,7 +1,7 @@
 {
     "issue_numbers": [100, 500, 1000, 1337, 2000],
     "development": {
-        "localBaseUrl": "",
+        "localBaseUrl": "https://celebratejiraissues.herokuapp.com",
         "usePublicKey": false,
         "watch": false,
         "port": 3000,
@@ -30,7 +30,7 @@
     "production": {
         "usePublicKey": false,
         "port": "$PORT",
-        "localBaseUrl": "https://bestbothipchat.herokuapp.com",
+        "localBaseUrl": "https://celebratejiraissues.herokuapp.com",
         "store": {
             "adapter": "redis",
             "url": "$REDIS_URL"

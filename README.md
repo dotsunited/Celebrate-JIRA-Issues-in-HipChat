@@ -1,4 +1,5 @@
-# Hipchat Bot for posting Funny Stuff on specific Jira Issue Number
+# Celebrate JIRA Issues
+Hipchat Bot for posting Funny Stuff on specific Jira Issue Number.
 
 # Dependencies
 
