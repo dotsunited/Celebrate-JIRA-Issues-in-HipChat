@@ -167,8 +167,10 @@ module.exports = function(app, addon) {
                         numberArray = match[0].split("-");
                         if (numberArray.length > 1) {
                             for (var issue_number of config.issue_numbers) {
+                              console.log(issue_number);
                                 if (numberArray[1] == issue_number) {
                                     number = numberArray[1];
+                                    console.log(number);
                                     card = {
                                         "style": "image",
                                         "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
