@@ -159,7 +159,7 @@ module.exports = function(app, addon) {
                 console.log('true');
                 var command = req.body.item.message.message;
                 var match_close = command.match(/changed the status of/);
-                var match = command.match(/https\:\/\/[.]+\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+                var match = command.match(/https\:\/\/[a-zA-Z0-9]+\.atlassian\.net\/browse\/[a-zA-Z0-9]+\-[\d]+/);
                 console.log(match);
                 var numberArray;
                 var number;
