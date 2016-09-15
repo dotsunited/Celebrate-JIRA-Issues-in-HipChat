@@ -1,5 +1,5 @@
 {
-    "key": "Celebrate JIRA Issues",
+    "key": "com.herokuapp.celebratejiraissues",
     "name": "Celebrate JIRA Issues",
     "description": "HipChat Bot for posting images on specific JIRA Issue Number",
     "vendor": {
