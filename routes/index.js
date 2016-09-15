@@ -51,7 +51,7 @@ module.exports = function(app, addon) {
             // * req.context: contains the context data accompanying the request like
             //   the roomId
             req.config = config.issue_numbers;
-            res.render('config', req.context);
+            res.render('config', req);
         }
     );
 
