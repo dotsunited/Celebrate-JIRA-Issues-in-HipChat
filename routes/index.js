@@ -173,6 +173,10 @@ module.exports = function(app, addon) {
                                     if (numberArray[1] == issue_number) {
                                         number = numberArray[1];
                                         console.log(number);
+                                        opt = {
+                                          "format": "html",
+                                          "notify": true
+                                        }
                                         card = {
                                             "style": "image",
                                             "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
@@ -186,7 +190,7 @@ module.exports = function(app, addon) {
                                             }
                                         }
 
-                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, '', '', card).then(function(data) {
+                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, '<img src="https://media.giphy.com/media/l6fzXjHwAWXCM/giphy.gif" align="middle" width="315"></img></br><b>1000. Issue!!!</b>', opt, card).then(function(data) {
                                             res.sendStatus(200);
                                         });
                                     }
