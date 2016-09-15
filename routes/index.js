@@ -151,14 +151,14 @@ module.exports = function (app, addon) {
         console.log('true');
         var command = req.body.item.message.message;
         var match_close = command.match(/changed the status of/);
-        var match = command.match(/https\:\/\/dotsunited\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+        var match = command.match(/https\:\/\/[.]+\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
         var numberArray;
         var number;
         if(match_close.length > 0) {
           if (match.length > 0){
             numberArray = match[0].split("-");
             if(numberArray.length > 1){
-              if(numberArray[1] == 100 || numberArray[1] == 500 || numberArray[1] == 1000 || numberArray[1] == 1337 || numberArray[1] == 2000 || numberArray[1] == 730){
+              if(numberArray[1] == 100 || numberArray[1] == 500 || numberArray[1] == 1000 || numberArray[1] == 1337 || numberArray[1] == 2000){
                 number = numberArray[1];
                 card={
                   "style": "image",
