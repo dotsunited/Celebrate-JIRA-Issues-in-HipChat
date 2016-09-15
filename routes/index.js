@@ -160,6 +160,7 @@ module.exports = function(app, addon) {
                 var command = req.body.item.message.message;
                 var match_close = command.match(/changed the status of/);
                 var match = command.match(/https\:\/\/[.]+\.atlassian\.net\/browse\/[A-Z]+\-[\d]+/);
+                console.log(match);
                 var numberArray;
                 var number;
                 if (match_close.length > 0) {
