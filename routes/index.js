@@ -50,6 +50,7 @@ module.exports = function(app, addon) {
             //   clientKey, oauth info, and HipChat account info
             // * req.context: contains the context data accompanying the request like
             //   the roomId
+            req.context.config = config.issue_numbers;
             res.render('config', req.context);
         }
     );
