@@ -43,7 +43,7 @@ module.exports = function(app, addon) {
     // https://developer.atlassian.com/hipchat/guide/configuration-page
     app.get('/config',
         // Authenticates the request using the JWT token in the request
-        addon.authenticate(),
+        //addon.authenticate(),
         function(req, res) {
             // The `addon.authenticate()` middleware populates the following:
             // * req.clientInfo: useful information about the add-on client such as the
