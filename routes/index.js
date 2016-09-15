@@ -158,36 +158,38 @@ module.exports = function(app, addon) {
             if (req.body.item.message.from === 'JIRA') {
                 console.log('true');
                 var command = req.body.item.message.message;
-                var match_close = command.match(/changed the status of/);
+                var match_close = command.match(/Resolved/);
                 var match = command.match(/https\:\/\/[a-zA-Z0-9]+\.atlassian\.net\/browse\/[a-zA-Z0-9]+\-[\d]+/);
                 console.log(match);
                 var numberArray;
                 var number;
-                if (match_close.length > 0) {
-                    if (match.length > 0) {
-                        numberArray = match[0].split("-");
-                        if (numberArray.length > 1) {
-                            for (var issue_number of config.issue_numbers) {
-                              console.log(issue_number);
-                                if (numberArray[1] == issue_number) {
-                                    number = numberArray[1];
-                                    console.log(number);
-                                    card = {
-                                        "style": "image",
-                                        "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
-                                        "url": "http://bit.ly/2cBH1dY",
-                                        "title": number + ". Issue!!!",
-                                        "thumbnail": {
-                                            "url": "http://bit.ly/2bTK7Ko",
-                                            "url@2x": "http://bit.ly/2bTK7Ko",
-                                            "width": 1193,
-                                            "height": 564
+                if (match_close != null) {
+                    if (match_close.length > 0) {
+                        if (match.length > 0) {
+                            numberArray = match[0].split("-");
+                            if (numberArray.length > 1) {
+                                for (var issue_number of config.issue_numbers) {
+                                    console.log(issue_number);
+                                    if (numberArray[1] == issue_number) {
+                                        number = numberArray[1];
+                                        console.log(number);
+                                        card = {
+                                            "style": "image",
+                                            "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
+                                            "url": "http://bit.ly/2cBH1dY",
+                                            "title": number + ". Issue!!!",
+                                            "thumbnail": {
+                                                "url": "http://bit.ly/2bTK7Ko",
+                                                "url@2x": "http://bit.ly/2bTK7Ko",
+                                                "width": 1193,
+                                                "height": 564
+                                            }
                                         }
-                                    }
 
-                                    hipchat.sendMessage(req.clientInfo, req.identity.roomId, '', '', card).then(function(data) {
-                                        res.sendStatus(200);
-                                    });
+                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, '', '', card).then(function(data) {
+                                            res.sendStatus(200);
+                                        });
+                                    }
                                 }
                             }
                         }
