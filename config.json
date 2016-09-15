@@ -7,7 +7,7 @@
         "port": 3000,
         "maxTokenAge": 86400,
         "avatarId": "custom_id",
-        "avatarFileName": "avatar.png",
+        "avatarFileName": "logo.png",
         "avatarExpiryTime": 86400,
         "store": {
             "adapter": "jugglingdb",
