@@ -1,7 +1,7 @@
 {
-    "issue_numbers": [100, 500, 1000, 1337, 2000, 730],
+    "issue_numbers": [100, 500, 1000, 1337, 2000],
     "development": {
-        "localBaseUrl": "https://bestbothipchat.herokuapp.com",
+        "localBaseUrl": "",
         "usePublicKey": false,
         "watch": false,
         "port": 3000,
