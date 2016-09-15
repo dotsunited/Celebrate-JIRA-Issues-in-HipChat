@@ -1,4 +1,5 @@
 {
+    "issue_numbers": [100, 500, 1000, 1337, 2000, 730],
     "development": {
         "localBaseUrl": "YOUR HEROKU URL HERE",
         "usePublicKey": false,
