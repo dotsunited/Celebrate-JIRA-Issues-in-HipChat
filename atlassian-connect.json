@@ -1,94 +1,86 @@
 {
-  "key": "bestbot",
-  "name": "bestbot",
-  "description": "The funniest Bot ever.",
-  "vendor": {
-    "name": "Dots United",
-    "url": "https://www.hipchat.com"
-  },
-  "links": {
-    "self": "{{localBaseUrl}}/atlassian-connect.json",
-    "homepage": "{{localBaseUrl}}"
-  },
-  "capabilities": {
-    "hipchatApiConsumer": {
-      "scopes": [
-        "send_notification",
-        "view_room"
-      ],
-      "avatar": {
-        "url": "{{localBaseUrl}}/img/logo.png",
-        "url@2x": "{{localBaseUrl}}/img/logo.png"
-      }
+    "key": "celebrate for JIRA",
+    "name": "celebrate for JIRA",
+    "description": "Hipchat Bot for posting images on specific Jira Issue Number",
+    "vendor": {
+        "name": "Dots United",
+        "url": "https://www.hipchat.com"
     },
-    "installable": {
-      "callbackUrl": "{{localBaseUrl}}/installable"
+    "links": {
+        "self": "{{localBaseUrl}}/atlassian-connect.json",
+        "homepage": "{{localBaseUrl}}"
     },
-    "configurable": {
-      "url": "{{localBaseUrl}}/config"
-    },
-    "webhook": {
-      "url": "{{localBaseUrl}}/webhook",
-      "event": "room_notification",
-      "name": "Notification",
-      "authentication": "jwt"
-    },
-    "glance": [
-      {
-        "name": {
-          "value": "Hello!"
+    "capabilities": {
+        "hipchatApiConsumer": {
+            "scopes": [
+                "send_notification",
+                "view_room"
+            ],
+            "avatar": {
+                "url": "{{localBaseUrl}}/img/logo.png",
+                "url@2x": "{{localBaseUrl}}/img/logo.png"
+            }
         },
-        "queryUrl": "{{localBaseUrl}}/glance",
-        "key": "sample.glance",
-        "target": "sample.sidebar",
-        "icon": {
-          "url": "{{localBaseUrl}}/img/logo.png",
-          "url@2x": "{{localBaseUrl}}/img/logo.png"
-        }
-      }
-    ],
-    "webPanel": [
-      {
-        "key": "sample.sidebar",
-        "name": {
-          "value": "Hello Sidebar!"
+        "installable": {
+            "callbackUrl": "{{localBaseUrl}}/installable"
         },
-        "location": "hipchat.sidebar.right",
-        "url": "{{localBaseUrl}}/sidebar"
-      }
-    ],
-    "dialog": [
-      {
-        "key": "sample.dialog",
-        "title": {
-          "value": "Hello Dialog!"
+        "configurable": {
+            "url": "{{localBaseUrl}}/config"
         },
-        "url": "{{localBaseUrl}}/dialog",
-        "options": {
-          "style": "normal",
-          "primaryAction": {
+        "webhook": [{
+            "url": "{{localBaseUrl}}/webhook",
+            "event": "room_notification",
+            "name": "Notification",
+            "authentication": "jwt"
+        }],
+        "glance": [{
             "name": {
-              "value": "Say Hello!"
+                "value": "Hello!"
             },
-            "key": "sample.dialog.action",
-            "enabled": true
-          },
-          "size": {
-            "width": "400px",
-            "height": "200px"
-          }
-        }
-      }
-    ],
-    "action": [
-      {
-        "key": "sample.action",
-        "name": {
-          "value": "Open Hello Dialog!"
-        },
-        "target": "sample.dialog",
-        "location": "hipchat.input.action"
-      }
-    ]
-  }
+            "queryUrl": "{{localBaseUrl}}/glance",
+            "key": "sample.glance",
+            "target": "sample.sidebar",
+            "icon": {
+                "url": "{{localBaseUrl}}/img/logo.png",
+                "url@2x": "{{localBaseUrl}}/img/logo.png"
+            }
+        }],
+        "webPanel": [{
+            "key": "sample.sidebar",
+            "name": {
+                "value": "Hello Sidebar!"
+            },
+            "location": "hipchat.sidebar.right",
+            "url": "{{localBaseUrl}}/sidebar"
+        }],
+        "dialog": [{
+            "key": "sample.dialog",
+            "title": {
+                "value": "Hello Dialog!"
+            },
+            "url": "{{localBaseUrl}}/dialog",
+            "options": {
+                "style": "normal",
+                "primaryAction": {
+                    "name": {
+                        "value": "Say Hello!"
+                    },
+                    "key": "sample.dialog.action",
+                    "enabled": true
+                },
+                "size": {
+                    "width": "400px",
+                    "height": "200px"
+                }
+            }
+        }],
+        "action": [{
+            "key": "sample.action",
+            "name": {
+                "value": "Open Hello Dialog!"
+            },
+            "target": "sample.dialog",
+            "location": "hipchat.input.action"
+        }]
+    }
 }
