@@ -13,7 +13,7 @@ Before uploading edit the config.json file in the root directory. Change `issue_
 
 Now upload the App to Heroku.
 
-Check if the "REDIS_URL" environment variables is set. You can check that if you have installed the [Heroku Cli](https://devcenter.heroku.com/articles/heroku-command-line). If its installed on your local machine and if you're logged in type
+Check if the `REDIS_URL` environment variables is set. You can check that if you have installed the [Heroku Cli](https://devcenter.heroku.com/articles/heroku-command-line). If its installed on your local machine and if you're logged in type
 ```bash
 heroku config
 ```
