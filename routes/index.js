@@ -56,14 +56,6 @@ module.exports = function(app, addon) {
         }
     );
 
-    app.post('/settings',
-        addon.authenticate(),
-        function(req, res) {
-          req.body.
-        }
-    );
-
-
     // This is an example route to handle an incoming webhook
     // https://developer.atlassian.com/hipchat/guide/webhooks
     app.post('/webhook',
