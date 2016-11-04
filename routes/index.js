@@ -89,22 +89,10 @@ module.exports = function(app, addon) {
                                             "format": "html",
                                             "notify": true
                                         }
-                                        const card = {
-                                            "style": "image",
-                                            "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
-                                            "url": "https://dotsunited.de/",
-                                            "title": number + ". Issue!!!",
-                                            "thumbnail": {
-                                                "url": `../public/img/${number}.gif`,
-                                                "url@2x": `../public/img/${number}.gif`,
-                                                "width": 600,
-                                                "height": 375
-                                            }
-                                        }
 
                                         const fallback = `<img src="../public/img/${number}.gif" align="middle" width="600" height="375"></img></br><b>${number}. Issue!!!</b>`;
 
-                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, fallback, opt, card).then(function(data) {
+                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, fallback, opt).then(function(data) {
                                             console.log(data);
                                             res.sendStatus(200);
                                         });
