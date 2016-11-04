@@ -102,9 +102,10 @@ module.exports = function(app, addon) {
                                             }
                                         }
 
-                                        var fallback = `<img src="../public/img/${number}.gif" align="middle" width="600" height="375"></img></br><b>${number}. Issue!!!</b>`;
+                                        const fallback = `<img src="../public/img/${number}.gif" align="middle" width="600" height="375"></img></br><b>${number}. Issue!!!</b>`;
 
                                         hipchat.sendMessage(req.clientInfo, req.identity.roomId, fallback, opt, card).then(function(data) {
+                                            console.log(data);
                                             res.sendStatus(200);
                                         });
                                     }
