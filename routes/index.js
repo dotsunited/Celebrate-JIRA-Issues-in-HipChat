@@ -69,15 +69,21 @@ module.exports = function(app, addon) {
                 if (match_close != null) {
                     if (match_close.length > 0) {
                         if (match.length > 0) {
+                          console.log(match);
+                          console.log(match_close);
                             const numberArray = match[0].split("-");
                             if (numberArray.length > 1) {
                                 for (let issue_number of config.issue_numbers) {
                                     if (numberArray[1] == issue_number) {
                                         let number = numberArray[1];
 
+                                        console.log(number);
+
                                         if (number == 744) {
                                           number = 1337;
                                         }
+
+                                        console.log(number);
 
                                         const opt = {
                                             "format": "html",
