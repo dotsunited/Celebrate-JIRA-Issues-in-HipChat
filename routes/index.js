@@ -62,41 +62,43 @@ module.exports = function(app, addon) {
         addon.authenticate(),
         function(req, res) {
             if (req.body.item.message.from === 'JIRA') {
-                console.log('true');
-                var command = req.body.item.message.message;
-                var match_close = command.match(/Resolved/);
-                var match = command.match(/https\:\/\/[a-zA-Z0-9]+\.atlassian\.net\/browse\/[a-zA-Z0-9]+\-[\d]+/);
-                console.log(match);
-                var numberArray;
-                var number;
+                const command = req.body.item.message.message;
+                const match_close = command.match(/Resolved/);
+                const match = command.match(/https\:\/\/[a-zA-Z0-9]+\.atlassian\.net\/browse\/[a-zA-Z0-9]+\-[\d]+/);
+
                 if (match_close != null) {
                     if (match_close.length > 0) {
                         if (match.length > 0) {
-                            numberArray = match[0].split("-");
+                            const numberArray = match[0].split("-");
                             if (numberArray.length > 1) {
-                                for (var issue_number of config.issue_numbers) {
-                                    console.log(issue_number);
+                                for (let issue_number of config.issue_numbers) {
                                     if (numberArray[1] == issue_number) {
-                                        number = numberArray[1];
-                                        console.log(number);
-                                        opt = {
+                                        let number = numberArray[1];
+
+                                        if (number == 744) {
+                                          number = 1337;
+                                        }
+
+                                        const opt = {
                                             "format": "html",
                                             "notify": true
                                         }
-                                        card = {
+                                        const card = {
                                             "style": "image",
                                             "id": "172fe15d-d72e-4f78-8712-0ec74e7f9aa3",
-                                            "url": "http://bit.ly/2cBH1dY",
+                                            "url": "https://dotsunited.de/",
                                             "title": number + ". Issue!!!",
                                             "thumbnail": {
-                                                "url": "http://bit.ly/2bTK7Ko",
-                                                "url@2x": "http://bit.ly/2bTK7Ko",
-                                                "width": 1193,
-                                                "height": 564
+                                                "url": `../public/img/${number}.gif`,
+                                                "url@2x": `../public/img/${number}.gif`,
+                                                "width": 600,
+                                                "height": 375
                                             }
                                         }
 
-                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, '<img src="https://media.giphy.com/media/l6fzXjHwAWXCM/giphy.gif" align="middle" width="315"></img></br><b>1000. Issue!!!</b>', opt, card).then(function(data) {
+                                        var fallback = `<img src="../public/img/${number}.gif" align="middle" width="600" height="375"></img></br><b>${number}. Issue!!!</b>`;
+
+                                        hipchat.sendMessage(req.clientInfo, req.identity.roomId, '', opt, card).then(function(data) {
                                             res.sendStatus(200);
                                         });
                                     }
