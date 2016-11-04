@@ -1,5 +1,5 @@
 {
-    "issue_numbers": [100, 200, 250, 500, 744, 750, 1000, 1250, 1337, 1500, 2000, 2500, 3000, 4000, 5000, 7500, 10000],
+    "issue_numbers": [100, 200, 250, 500, 750, 1000, 1250, 1337, 1500, 2000, 2500, 3000, 4000, 5000, 7500, 10000],
     "development": {
         "localBaseUrl": "https://celebratejiraissues.herokuapp.com",
         "usePublicKey": false,

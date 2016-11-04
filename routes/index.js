@@ -77,20 +77,12 @@ module.exports = function(app, addon) {
                                     if (numberArray[1] == issue_number) {
                                         let number = numberArray[1];
 
-                                        console.log(number);
-
-                                        if (number == 744) {
-                                          number = 1337;
-                                        }
-
-                                        console.log(number);
-
                                         const opt = {
                                             "format": "html",
                                             "notify": true
                                         }
 
-                                        const fallback = `<img src="https://celebratejiraissues.herokuapp.com/img/${number}.gif" align="middle" width="600" height="375"></img></br><b>${number}. Issue!!!</b>`;
+                                        const fallback = `<img src="https://celebratejiraissues.herokuapp.com/img/${number}.gif" align="middle" width="600" height="375"></img>`;
 
                                         hipchat.sendMessage(req.clientInfo, req.identity.roomId, fallback, opt).then(function(data) {
                                             console.log(data);
